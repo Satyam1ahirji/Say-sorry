@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shivani ❤️</title>
+
+<style>
+body {
+  margin:0;
+  font-family:sans-serif;
+  background:black;
+  color:white;
+  overflow:hidden;
+}
+
+.section {
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.active {opacity:1; transform:translateY(0);}
+
+.glow {
+  color:#ff4d6d;
+  text-shadow:0 0 10px #ff4d6d;
+  font-size:28px;
+}
+
+button {
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff4d6d;
+  color:white;
+  margin-top:20px;
+}
+
+#noBtn {position:absolute;}
+
+</style>
+</head>
+
+<body>
+
+<!-- page 1 -->
+<div class="section active" id="s1">
+  <h1 class="glow">Shivani Jha</h1>
+  <p id="type1"></p>
+  <button onclick="next(1)">Start</button>
+</div>
+
+<!-- more deep pages -->
+<div class="section" id="s2">
+  <p>Shayad aap mujhe ignore kar rahi hain...</p>
+  <p>Aur sach kahu to main deserve karta hoon.</p>
+  <button onclick="next(2)">Next</button>
+</div>
+
+<div class="section" id="s3">
+  <p>Main baar-baar wahi moment yaad kar raha hoon...</p>
+  <p>Jahan maine aapko hurt kiya.</p>
+  <button onclick="next(3)">Next</button>
+</div>
+
+<div class="section" id="s4">
+  <p>Us waqt shayad mujhe samajh nahi aaya...</p>
+  <p>Par ab samajh aa raha hai.</p>
+  <button onclick="next(4)">Next</button>
+</div>
+
+<div class="section" id="s5">
+  <p>Aap mere liye sirf ek insaan nahi hain...</p>
+  <p>Aap meri aadat hain.</p>
+  <button onclick="next(5)">Next</button>
+</div>
+
+<div class="section" id="s6">
+  <p>Jab aap baat nahi karti...</p>
+  <p>To sab kuch thoda sa khaali lagta hai.</p>
+  <button onclick="next(6)">Next</button>
+</div>
+
+<div class="section" id="s7">
+  <p>Main perfect nahi hoon...</p>
+  <p>Par aapko khona bhi nahi chahta.</p>
+  <button onclick="next(7)">Next</button>
+</div>
+
+<div class="section" id="s8">
+  <p>Main change hona chahta hoon...</p>
+  <p>Sirf bolne ke liye nahi, sach me.</p>
+  <button onclick="next(8)">Next</button>
+</div>
+
+<div class="section" id="s9">
+  <p>Main aapko force nahi karunga...</p>
+  <p>Par ek chance zaroor maangunga.</p>
+  <button onclick="next(9)">Next</button>
+</div>
+
+<div class="section" id="s10">
+  <h2>Kya aap ek chance dengi?</h2>
+  <button onclick="finalPage()">Yes ❤️</button>
+  <button id="noBtn">No 😅</button>
+</div>
+
+<div class="section" id="final">
+  <h1>Thank you ❤️</h1>
+  <p id="finalText"></p>
+</div>
+
+<script>
+function next(n){
+  document.getElementById("s"+n).classList.remove("active");
+  document.getElementById("s"+(n+1)).classList.add("active");
+}
+
+function finalPage(){
+  document.getElementById("s10").classList.remove("active");
+  document.getElementById("final").classList.add("active");
+
+  setTimeout(()=>{
+    document.getElementById("finalText").innerHTML =
+    "Main wait karunga... jitna bhi time lage.";
+  },1000);
+}
+
+// typing
+let t="Mujhe pata hai aap mujhse bahut gussa hain... par please ek baar meri baat sun lijiye.";
+let i=0;
+function type(){
+  if(i<t.length){
+    document.getElementById("type1").innerHTML+=t.charAt(i);
+    i++;
+    setTimeout(type,40);
+  }
+}
+type();
+
+// moving no button
+let btn=document.getElementById("noBtn");
+btn.onmouseover=()=>{
+  btn.style.top=Math.random()*80+"vh";
+  btn.style.left=Math.random()*80+"vw";
+};
+</script>
+
+</body>
+</html>
